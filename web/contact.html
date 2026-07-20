@@ -29,11 +29,19 @@
   <meta property="og:image" content="https://natuvea.com/og-image.png">
   <meta property="og:site_name" content="Natuvea">
 
-  <link rel="stylesheet" href="styles.css?v=26">
+  <link rel="stylesheet" href="styles.css?v=27">
 </head>
 <body class="home">
+  <header class="site-header">
+    <a class="home-link" href="./" aria-label="Natuvea home"><img src="logo.png" alt="Natuvea logo"></a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="product.html">Product</a>
+      <a href="studio.html">Studio</a>
+      <a href="journal/">Journal</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+    </nav>
+  </header>
   <div class="content">
-    <a href="./" aria-label="Natuvea home"><img class="logo" src="logo.png" alt="Natuvea logo"></a>
     <h1 class="page-title">Contact</h1>
     <div class="divider" role="separator" aria-hidden="true"></div>
     <div class="contact-details">
@@ -47,7 +55,10 @@
       </div>
     </div>
   </div>
-  <footer>&copy; Natuvea Ltd <span id="year"></span> <span>&middot;</span> <a href="./">Home</a></footer>
+  <footer>
+    &copy; Natuvea Ltd <span id="year"></span> <span>&middot;</span> Company SC827506
+    <div class="footer-nav"><a href="product.html">Product</a> <span>&middot;</span> <a href="studio.html">Studio</a> <span>&middot;</span> <a href="journal/">Journal</a> <span>&middot;</span> <a href="privacy.html">Privacy</a> <span>&middot;</span> <a href="contact.html">Contact</a></div>
+  </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

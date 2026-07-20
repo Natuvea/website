@@ -6,7 +6,7 @@ Source for [natuvea.com](https://natuvea.com/), the website for Natuvea Ltd, a d
 
 | Path | Description |
 | --- | --- |
-| [`web/`](web/) | The static website: a landing page and a contact page, with shared `styles.css`, logos, icons, `robots.txt`, and `sitemap.xml`. |
+| [`web/`](web/) | The static website: the landing page, product, studio, privacy, and contact pages, and the journal, with shared `styles.css`, logos, icons, `robots.txt`, and `sitemap.xml`. |
 | [`infr/`](infr/) | AWS CDK infrastructure (TypeScript) that hosts the site on S3 + CloudFront with a Route 53 domain and ACM certificate. |
 
 ## Website

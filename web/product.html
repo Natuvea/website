@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product | Natuvea</title>
+  <meta name="description" content="Natuvea builds end-to-end encrypted messaging infrastructure for developers: realtime chat SDKs where the server only ever sees ciphertext.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://natuvea.com/product.html">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#1d1d1b">
+
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" as="style">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://natuvea.com/product.html">
+  <meta property="og:title" content="Product | Natuvea">
+  <meta property="og:description" content="End-to-end encrypted messaging infrastructure for developers.">
+  <meta property="og:image" content="https://natuvea.com/og-image.png">
+  <meta property="og:site_name" content="Natuvea">
+
+  <link rel="stylesheet" href="styles.css?v=27">
+</head>
+<body class="page">
+  <header class="site-header">
+    <a class="home-link" href="./" aria-label="Natuvea home"><img src="logo.png" alt="Natuvea logo"></a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="product.html" aria-current="page">Product</a>
+      <a href="studio.html">Studio</a>
+      <a href="journal/">Journal</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Messaging infrastructure</h1>
+    <p class="lede">Encrypted realtime, by default.</p>
+
+    <p>We are building the messaging layer we wanted to exist: realtime chat a developer can drop into an application, where end-to-end encryption is the default rather than an option, and where every claim about the system traces to evidence.</p>
+    <p>Plaintext in your code, ciphertext on the wire. The server only ever sees ciphertext, never plaintext. Encryption is built on the Signal protocol library, libsignal, rather than cryptography of our own invention.</p>
+
+    <h2>What it does</h2>
+    <ul>
+      <li>Direct messages, group rooms, and a contact graph that gates who can reach whom.</li>
+      <li>Link multiple devices to one identity; messages reach all of them.</li>
+      <li>SDKs for Web, Apple, Android, .NET, and Rust.</li>
+      <li>One API key per tenant; tenants are isolated and configured independently.</li>
+      <li>Encrypted file and image transfer alongside messages.</li>
+    </ul>
+
+    <h2>How we know it works</h2>
+    <p>Security claims are easy to make and expensive to check, so we treat ours as a registry: each one is written down, tied to the evidence behind it, and removed or narrowed when the evidence does not reach. A claim that outruns its evidence is a bug.</p>
+    <p>The evidence itself is runtime evidence, which we call proof bundles: captured runs of the shipped system against a live cluster, showing that a behaviour held when it was exercised. A DM sent from one SDK is byte-for-byte the message another decrypts, captured pair by pair across the web, Apple, .NET, and Rust SDKs. The bundles are re-verified nightly, so a claim that silently stops being true gets caught rather than remembered.</p>
+    <p>These are observations of real behaviour, not formal proofs. We reserve the words verified and proven for machine-checked proof of a specification, which this is not. We also publish no throughput or latency figures yet, for one reason: no capacity evidence bundle substantiates a number, and a number without evidence is exactly what this discipline exists to prevent. The <a href="journal/">journal</a> covers how this works in practice.</p>
+
+    <h2>Where it stands</h2>
+    <p>The product is in active development in a private repository, with the platform running on our own infrastructure and the SDKs exercised by example applications on every platform. We have commissioned external security review, and the confirmed findings from the most recent round have been resolved. We are preparing it for public release under its own name; enquiries are welcome at <a href="mailto:info@natuvea.com">info@natuvea.com</a>.</p>
+  </main>
+  <footer>
+    &copy; Natuvea Ltd <span id="year"></span> <span>&middot;</span> Company SC827506
+    <div class="footer-nav"><a href="product.html">Product</a> <span>&middot;</span> <a href="studio.html">Studio</a> <span>&middot;</span> <a href="journal/">Journal</a> <span>&middot;</span> <a href="privacy.html">Privacy</a> <span>&middot;</span> <a href="contact.html">Contact</a></div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
