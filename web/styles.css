@@ -197,26 +197,33 @@ body.home .hero {
 }
 .band-links a:hover { color: var(--text-full); border-color: var(--accent); }
 
-/* Prose pages */
+/* Prose pages: sans title column left, serif copy column right */
 body.page main {
   flex: 1;
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 620px;
+  max-width: 1040px;
   margin: 0 auto;
-  padding: 40px 24px 96px;
+  padding: 56px 24px 96px;
+  display: grid;
+  grid-template-columns: minmax(220px, 340px) minmax(0, 620px);
+  justify-content: space-between;
+  column-gap: 72px;
+  align-items: start;
   font-family: var(--font);
   opacity: 0;
   animation: fadeIn 1.2s ease forwards;
 }
+body.page .page-head { position: sticky; top: 40px; }
 body.page h1 {
   color: var(--text-full);
   font-family: var(--font-sans);
-  font-size: 28px;
+  font-size: 34px;
   font-weight: 600;
-  letter-spacing: -0.015em;
-  margin-bottom: 12px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
 }
 body.page .lede {
   color: var(--text-muted);
@@ -224,8 +231,9 @@ body.page .lede {
   font-style: italic;
   font-weight: 300;
   letter-spacing: 0.03em;
-  margin-bottom: 44px;
 }
+body.page .page-body > :first-child { margin-top: 6px; }
+body.page .page-body > h2:first-child { margin-top: 6px; }
 body.page h2 {
   color: var(--text-full);
   font-family: var(--font-sans);
@@ -315,6 +323,14 @@ footer a {
 footer a:hover { color: var(--accent); }
 footer span { margin: 0 12px; }
 
+@media (max-width: 760px) {
+  body.page main {
+    display: block;
+    max-width: 620px;
+  }
+  body.page .page-head { position: static; margin-bottom: 40px; }
+  body.page h1 { font-size: 28px; }
+}
 @media (max-width: 480px) {
   .content { gap: 36px; }
   .tagline { font-size: 18px; max-width: 280px; }
