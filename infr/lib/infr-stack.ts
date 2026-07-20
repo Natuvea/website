@@ -35,11 +35,26 @@ export class InfrStack extends cdk.Stack {
       region: 'us-east-1',
     });
 
+    // Serve index.html for directory URLs (defaultRootObject only covers "/")
+    const indexRewrite = new cloudfront.Function(this, 'IndexRewrite', {
+      code: cloudfront.FunctionCode.fromInline(
+        'function handler(event) {' +
+          'var req = event.request;' +
+          "if (req.uri.endsWith('/')) { req.uri += 'index.html'; }" +
+          'return req;' +
+        '}'
+      ),
+    });
+
     // CloudFront distribution
     const distribution = new cloudfront.Distribution(this, 'SiteDistribution', {
       defaultBehavior: {
         origin: origins.S3BucketOrigin.withOriginAccessControl(siteBucket),
         viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+        functionAssociations: [{
+          function: indexRewrite,
+          eventType: cloudfront.FunctionEventType.VIEWER_REQUEST,
+        }],
       },
       domainNames: [DOMAIN_NAME, `www.${DOMAIN_NAME}`],
       certificate,
