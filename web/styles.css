@@ -5,6 +5,7 @@
   --text-muted: rgba(250, 249, 246, 0.35);
   --hairline: rgba(250, 249, 246, 0.15);
   --font: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 a { color: inherit; text-decoration: none; }
@@ -89,10 +90,10 @@ body::before {
 /* Contact page */
 h1.page-title {
   color: var(--text-full);
-  font-family: var(--font);
-  font-size: 26px;
-  font-weight: 300;
-  letter-spacing: 0.06em;
+  font-family: var(--font-sans);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   text-align: center;
 }
 .contact-details {
@@ -103,10 +104,11 @@ h1.page-title {
 }
 .contact-details .label {
   color: var(--text-muted);
-  font-family: var(--font);
-  font-size: 13px;
-  font-style: italic;
-  letter-spacing: 0.08em;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   margin-bottom: 6px;
 }
 .contact-details .value {
@@ -139,9 +141,10 @@ h1.page-title {
   flex-wrap: wrap;
   justify-content: center;
   gap: 8px 28px;
-  font-family: var(--font);
-  font-size: 15px;
-  letter-spacing: 0.06em;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
 }
 .site-nav a { color: var(--text-muted); transition: color 0.3s ease; }
 .site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--text); }
@@ -164,9 +167,10 @@ body.home .hero {
 }
 .band h2 {
   color: var(--text-full);
-  font-size: 24px;
-  font-weight: 300;
-  letter-spacing: 0.05em;
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   margin-bottom: 24px;
 }
 .band p {
@@ -208,9 +212,10 @@ body.page main {
 }
 body.page h1 {
   color: var(--text-full);
-  font-size: 30px;
-  font-weight: 300;
-  letter-spacing: 0.05em;
+  font-family: var(--font-sans);
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
   margin-bottom: 12px;
 }
 body.page .lede {
@@ -223,9 +228,10 @@ body.page .lede {
 }
 body.page h2 {
   color: var(--text-full);
-  font-size: 21px;
-  font-weight: 400;
-  letter-spacing: 0.04em;
+  font-family: var(--font-sans);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
   margin: 44px 0 16px;
 }
 body.page p, body.page li {
@@ -275,7 +281,10 @@ body.page .meta {
 }
 .journal-list a {
   color: var(--text-full);
-  font-size: 19px;
+  font-family: var(--font-sans);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
   border-bottom: none;
 }
 .journal-list a:hover { color: var(--accent); }
@@ -292,9 +301,9 @@ footer {
   padding: 32px;
   background: rgba(0, 0, 0, 0.15);
   color: var(--text-muted);
-  font-family: var(--font);
-  font-size: 13px;
-  letter-spacing: 0.03em;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  letter-spacing: 0.02em;
   opacity: 0;
   animation: fadeIn 1.2s ease 0.6s forwards;
 }
