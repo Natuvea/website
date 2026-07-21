@@ -35,11 +35,20 @@ export class InfrStack extends cdk.Stack {
       region: 'us-east-1',
     });
 
-    // Serve index.html for directory URLs (defaultRootObject only covers "/")
+    // Edge rewrites: 301 www to the apex host, and serve index.html for
+    // directory URLs (defaultRootObject only covers "/")
     const indexRewrite = new cloudfront.Function(this, 'IndexRewrite', {
       code: cloudfront.FunctionCode.fromInline(
         'function handler(event) {' +
           'var req = event.request;' +
+          'var host = req.headers.host && req.headers.host.value;' +
+          "if (host === 'www.natuvea.com') {" +
+            'return {' +
+              'statusCode: 301,' +
+              "statusDescription: 'Moved Permanently'," +
+              "headers: { location: { value: 'https://natuvea.com' + req.uri } }" +
+            '};' +
+          '}' +
           "if (req.uri.endsWith('/')) { req.uri += 'index.html'; }" +
           'return req;' +
         '}'
@@ -59,6 +68,13 @@ export class InfrStack extends cdk.Stack {
       domainNames: [DOMAIN_NAME, `www.${DOMAIN_NAME}`],
       certificate,
       defaultRootObject: 'index.html',
+      // S3 with origin access control answers 403 for missing keys;
+      // surface those as a proper 404 with the site's not-found page
+      errorResponses: [{
+        httpStatus: 403,
+        responseHttpStatus: 404,
+        responsePagePath: '/404.html',
+      }],
     });
 
     // Route53 alias records
